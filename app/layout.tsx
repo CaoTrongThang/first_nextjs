@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,13 +23,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  //I want my red_pin image interactive, when i click on it, it should open a small model right at it and show my discord link
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header className="bg-black text-white p-4">
-          <h1>Header</h1>
-        </header>
+      <body>
         {children}
+        <img src="/red_pin.png" alt="pin" className="fixed bottom-0 right-0 w-[60px] h-[60px] object-contain mr-5 mb-5" />
       </body>
     </html>
   );
